@@ -291,9 +291,12 @@ BEGIN
     END
 END;
 ```
-Trigger này bổ sung kiểm tra logic ở mức nghiệp vụ, đảm bảo dữ liệu không vi phạm quy tắc (SoLuong >= 0) ngay cả khi có thay đổi trực tiếp.
-### Test Trigger lỗi
 <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/1479c31b-2df4-41c2-bc32-2e9eb8230c12" />
+*Chú thích: Trigger trg_KiemTraSoLuong được tạo để kiểm tra dữ liệu sau khi cập nhật. Nếu phát hiện số lượng sách âm, hệ thống sẽ rollback nhằm đảm bảo tính toàn vẹn dữ liệu.*
+
+### Test Trigger lỗi
+
+<img width="1156" height="651" alt="image" src="https://github.com/user-attachments/assets/fd34c42a-59dc-45a1-b481-5262688c2ce5" />
 *Chú thích: Thử cập nhật số lượng sách về giá trị âm (-1). Hệ thống từ chối do vi phạm ràng buộc CHECK (SoLuong >= 0), đảm bảo tính toàn vẹn dữ liệu.*
 *Không thể cập nhật do vi phạm ràng buộc dữ liệu (SoLuong >= 0).*
 *Kết quả: Không thể cập nhật và hệ thống hiển thị thông báo lỗi.*
